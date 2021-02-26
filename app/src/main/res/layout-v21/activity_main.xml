@@ -10,8 +10,10 @@
         android:id="@+id/linearLayoutSearchBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="10dp"
         android:background="#F8F8F8"
         android:orientation="vertical"
+        android:padding="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -25,17 +27,20 @@
             android:textColor="#007AFF"
             android:textSize="22sp" />
 
-        <EditText
-            android:id="@+id/editTextTextPersonName2"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/txtnomMO"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:drawableStart="?android:attr/actionModeWebSearchDrawable"
-            android:drawableLeft="@drawable/pencil"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Name"
-            tools:targetApi="lollipop" />
 
+            android:hint="Chercher Contact">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableLeft="?android:attr/actionModeWebSearchDrawable" />
+
+        </com.google.android.material.textfield.TextInputLayout>
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
@@ -53,12 +58,14 @@
         android:id="@+id/floatingActionButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="64dp"
+        android:layout_marginBottom="24dp"
         android:clickable="true"
+        app:backgroundTint="#007AFF"
         app:layout_constraintBottom_toBottomOf="@+id/RecycleViewContact"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.89"
+        app:layout_constraintHorizontal_bias="0.895"
         app:layout_constraintStart_toStartOf="parent"
+        app:rippleColor="#FFFFFF"
         app:srcCompat="@android:drawable/ic_input_add" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

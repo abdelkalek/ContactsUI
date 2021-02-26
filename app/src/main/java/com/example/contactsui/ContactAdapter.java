@@ -2,13 +2,14 @@ package com.example.contactsui;
 
 import android.content.Context;
 import android.content.Intent;
-import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,7 +26,6 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.MyViewHo
         this.ContactList = ContactList;
     }
 
-
     @NonNull
     @Override
     public ContactAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -40,6 +40,31 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.MyViewHo
         holder.id = contact.getId() ;
         holder.nom.setText(contact.getName());
         holder.phone.setText(contact.getPhoneNumber());
+        try{
+
+            byte[] recordImage = contact.getImage();
+        //    byte [] outImage = contact.getImage();
+            if(recordImage!=null) {
+
+                Bitmap bitmap = BitmapFactory.decodeByteArray(contact.getImage(), 0, contact.getImage().length);
+                holder.img_user.setImageBitmap(bitmap);
+
+         /*       ///////////////Convertion de Byte[] to Bitmap
+                ByteArrayInputStream imageStream = new ByteArrayInputStream(outImage);
+                Bitmap theImage = BitmapFactory.decodeStream(imageStream);
+                ///////////////Fin de Convertion de Byte[] to Bitmap
+                holder.img_user.setImageBitmap(theImage);*/
+            }
+        }catch (Exception ex) {
+            Toast.makeText(mContext,"class ContactAdapter EXception : "+ex,Toast.LENGTH_SHORT).show();
+
+        }
+
+
+
+
+
+
         holder.deleteBnt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -94,6 +119,7 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.MyViewHo
     public class MyViewHolder extends RecyclerView.ViewHolder {
         public TextView nom, phone;
         int id ;
+        public ImageView img_user ;
         public ImageButton deleteBnt , ModiBtn ;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -101,6 +127,7 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.MyViewHo
             phone =  itemView.findViewById(R.id.txt_phone);
             deleteBnt = itemView.findViewById(R.id.deletebnt);
             ModiBtn = itemView.findViewById(R.id.ModfierBnt);
+            img_user = itemView.findViewById(R.id.row_image);
 
         }
     }

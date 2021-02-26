@@ -6,127 +6,148 @@
     android:layout_height="match_parent"
     tools:context=".Ajouter">
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_end="653dp" />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-black"
-        android:gravity="center_horizontal"
-        android:text="Ajouter Contact"
-        android:textColor="@color/teal_700"
-        android:textSize="30sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/guideline4"
-        app:layout_constraintTop_toTopOf="@+id/guideline3" />
-
-    <EditText
-        android:id="@+id/txtnomMOD"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:ems="10"
-        android:hint="Nom de personne"
-        android:inputType="textPersonName"
-        android:maxLength="15"
-        android:textSize="24sp"
-        app:layout_constraintStart_toStartOf="@+id/guideline4"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
-
-    <EditText
-        android:id="@+id/txtphoneMOD"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:ems="10"
-        android:hint="Numero de Telephone"
-        android:inputType="phone"
-        android:maxLength="8"
-        android:textSize="24sp"
-        app:layout_constraintStart_toStartOf="@+id/guideline4"
-        app:layout_constraintTop_toBottomOf="@+id/txtnomMOD" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_begin="20dp" />
-
     <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="230dp"
-        android:layout_height="291dp"
+        android:id="@+id/imageView3"
+        android:layout_width="418dp"
+        android:layout_height="59dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
-        app:srcCompat="@drawable/userlogo" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/backgroundtop" />
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="horizontal"
+        android:layout_margin="15dp"
+        android:gravity="center_horizontal"
+        android:padding="5dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtphoneMOD">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
 
-        <Button
-            android:id="@+id/ModiferBtn"
+        <TextView
+            android:id="@+id/textView4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="2dp"
-            android:layout_marginTop="5dp"
+            android:layout_gravity="center_horizontal|center_vertical"
+            android:layout_weight="1"
+            android:fontFamily="@font/sf_promedium"
             android:text="Ajouter Contact"
-            app:backgroundTint="@color/teal_700" />
+            android:textColor="#007AFF"
+            android:textSize="17sp" />
 
-        <Button
-            android:id="@+id/Anullerbtn"
+        <TextView
+            android:id="@+id/textView5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="2dp"
-            android:layout_marginTop="5dp"
-            android:text="Annuler"
-            app:backgroundTint="@color/design_default_color_error" />
+            android:layout_gravity="right|center_horizontal|center_vertical"
+            android:fontFamily="@font/sf_promedium"
+            android:text="Vlider"
+            android:textColor="#007AFF"
+            android:textSize="17sp" />
+        <ImageButton
+            android:id="@+id/ModiferBtn"
+            android:layout_width="37dp"
+            android:layout_height="33dp"
+            android:background="@null"
+            app:srcCompat="@drawable/chekmarque" />
 
     </LinearLayout>
 
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="82dp"
-        android:layout_height="78dp"
-        android:layout_marginEnd="3dp"
-        android:layout_marginRight="3dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2"
-        app:srcCompat="@drawable/birdimg" />
-
-    <ImageView
-        android:id="@+id/imageView4"
+    <androidx.cardview.widget.CardView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/txtnomMOD"
-        app:layout_constraintEnd_toStartOf="@+id/imageView2"
+        app:layout_constraintBottom_toTopOf="@+id/txtnomMOD1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageView
+            android:id="@+id/profileimage"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/userimg"></ImageView>
+    </androidx.cardview.widget.CardView>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/txtnomMOD1"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:hint="Nom"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
-        app:srcCompat="@drawable/lampeimg" />
+        app:layout_constraintTop_toTopOf="@+id/guideline5"
+        app:layout_constraintVertical_bias="0.0">
 
-    <ImageView
-        android:id="@+id/imageView5"
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/txtnomMOD"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/ic_baseline_insert_emoticon_24"
+            android:inputType="textShortMessage" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/txtphoneMOD1"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:hint="Telephone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtnomMOD1"
+        app:layout_constraintVertical_bias="0.0">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/txtphoneMOD"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/ic_baseline_phone_24"
+            android:inputType="phone" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/Anullerbtn"
+        style="?attr/materialButtonOutlinedStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:rotation="40"
-        app:layout_constraintBottom_toTopOf="@+id/imageView3"
+        android:text="Annuler"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.4"
-        app:layout_constraintStart_toEndOf="@+id/imageView2"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
-        app:srcCompat="@drawable/naimg" />
+        app:layout_constraintHorizontal_bias="0.084"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtphoneMOD1"
+        app:layout_constraintVertical_bias="0.04" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrier2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="left" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="320dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="258dp" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

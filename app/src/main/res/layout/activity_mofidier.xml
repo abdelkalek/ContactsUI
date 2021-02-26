@@ -27,7 +27,7 @@
         app:layout_constraintTop_toTopOf="@+id/guideline3" />
 
     <EditText
-        android:id="@+id/txtnomMOD"
+        android:id="@+id/txtnomMO"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
@@ -39,7 +39,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
     <EditText
-        android:id="@+id/txtphoneMOD"
+        android:id="@+id/txtphoneMOD1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
@@ -48,7 +48,7 @@
         android:maxLength="8"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="@+id/guideline4"
-        app:layout_constraintTop_toBottomOf="@+id/txtnomMOD" />
+        app:layout_constraintTop_toBottomOf="@+id/txtnomMO" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline4"
@@ -73,7 +73,7 @@
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtphoneMOD">
+        app:layout_constraintTop_toBottomOf="@+id/txtphoneMOD1">
 
         <Button
             android:id="@+id/ModiferBtn"

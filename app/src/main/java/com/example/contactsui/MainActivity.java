@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
@@ -25,14 +26,16 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         getSupportActionBar().hide();
         recyclerView1 =findViewById(R.id.RecycleViewContact);
-        List<Contact> ContacList = new ArrayList<>();
         DataBaseHandler db = new DataBaseHandler(MainActivity.this);
         int nb = db.getContactsCount();
-        List<Contact> lst = db.getAllContact();
-        for (Contact c:lst) {
-            ContacList.add(new Contact(c.getId(), c.getName(),c.getPhoneNumber()));
+        try{
+            List<Contact> lst = db.getAllContact();
+            adapter = new ContactAdapter(this, lst);
+        }catch(Exception ex){
+            Toast.makeText(this,"class MainActivity EXception : "+ex,Toast.LENGTH_SHORT).show();
+
         }
-        adapter = new ContactAdapter(this, ContacList);
+
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getApplicationContext(),1);
         recyclerView1.setLayoutManager(gridLayoutManager);
         recyclerView1.setItemAnimator(new DefaultItemAnimator());

@@ -5,6 +5,8 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 
 import androidx.annotation.Nullable;
 
@@ -12,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DataBaseHandler extends SQLiteOpenHelper {
-    private static final int DATABASE_VERSION = 2;
+    private static final int DATABASE_VERSION = 11;
     private static final String DATABASE_NAME = "contactManager";
 
     public DataBaseHandler(@Nullable Context context) {
@@ -35,6 +37,7 @@ public class DataBaseHandler extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
         values.put("name", contact.getName());
         values.put("phone_Number", contact.getPhoneNumber());
+         values.put("image",contact.getImage());
         db.insert("contacts", null, values);
         db.close();
     }
@@ -55,7 +58,7 @@ public void selectContact(Contact contact)
         ContentValues values = new ContentValues();
         values.put("name",contact.getName());
         values.put("phone_number",contact.getPhoneNumber());
-       /// values.put("image",contact.getImage());
+       //values.put("image",contact.getImage());
         return db.update("contacts", values, "id=?", new String[] {String.valueOf(contact.getId())});
     }
     public List<Contact> getAllContact()
@@ -71,7 +74,10 @@ public void selectContact(Contact contact)
                 contact.setId(cursor.getInt(0));
                 contact.setName(cursor.getString(1));
                 contact.setPhoneNumber(cursor.getString(2));
-             //   contact.setImage(cursor.getBlob(3));
+                if(cursor.getBlob(3)!=null)
+                {
+                    contact.setImage(cursor.getBlob(3));
+                }
                 contactList.add(contact);
             }while (cursor.moveToNext());
         }
@@ -87,7 +93,7 @@ Contact getContact(int id)
     contact.setId(cursor.getInt(0));
     contact.setName(cursor.getString(1));
     contact.setPhoneNumber(cursor.getString(2));
-    contact.setImage(cursor.getBlob(3));
+    //contact.setImage(cursor.getBlob(3));
     return contact;
 }
     public  int getContactsCount() {
